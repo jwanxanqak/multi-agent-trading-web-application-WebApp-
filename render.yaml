@@ -6,6 +6,9 @@ services:
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11" # 👈 FUERZA A USAR PYTHON stable
 
   # 2. Servicio del Frontend (Streamlit)
   - type: web
@@ -20,3 +23,5 @@ services:
           type: web
           name: alpha-agent-backend
           property: host # 👈 CAMBIADO DE 'url' A 'host'
+       - key: PYTHON_VERSION
+        value: "3.11" # 👈 FUERZA A USAR PYTHON stable
