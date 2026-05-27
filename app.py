@@ -8,8 +8,9 @@ st.title("📈 AlphaAgent — Plataforma Multi-Agente de Trading")
 st.caption("Fase 5: Despliegue Externo de Producción (FastAPI + Streamlit)")
 st.markdown("---")
 
-# Render inyectará de forma dinámica la URL del backend aquí
-API_URL = os.getenv("BACKEND_URL", "http://localhost:8000")
+# Ajuste de DevOps: Si Render nos entrega el host privado puro, le añadimos el protocolo http://
+if API_URL and not API_URL.startswith("http://") and not API_URL.startswith("https://"):
+    API_URL = f"http://{API_URL}"
 
 st.sidebar.header("⚙️ Configuración")
 tickers_input = st.sidebar.text_input("Ingresa los Tickers separados por coma:", "AAPL, MSFT")

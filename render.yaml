@@ -19,4 +19,4 @@ services:
         fromService:
           type: web
           name: alpha-agent-backend
-          property: url
+          property: host # 👈 CAMBIADO DE 'url' A 'host'
