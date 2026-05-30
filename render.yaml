@@ -1,5 +1,5 @@
 services:
-  # 1. Servicio del Backend (FastAPI)
+  # 1. Backend Service (FastAPI)
   - type: web
     name: alpha-agent-backend
     env: python
@@ -8,9 +8,9 @@ services:
     autoDeploy: true
     envVars:
       - key: PYTHON_VERSION
-        value: "3.11" # 👈 FUERZA A USAR PYTHON stable
+        value: "3.11" # 👈 FORCE TO USE PYTHON stable
 
-  # 2. Servicio del Frontend (Streamlit)
+  # 2. Frontend Service (Streamlit)
   - type: web
     name: alpha-agent-frontend
     env: python
@@ -22,6 +22,6 @@ services:
         fromService:
           type: web
           name: alpha-agent-backend
-          property: host # 👈 CAMBIADO DE 'url' A 'host'
+          property: host # 👈 CHANGED FROM 'url' TO 'host'
        - key: PYTHON_VERSION
-        value: "3.11" # 👈 FUERZA A USAR PYTHON stable
+        value: "3.11" # 👈 FORCE TO USE PYTHON stable
